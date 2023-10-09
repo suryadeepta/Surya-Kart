@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Your E-Commerce Store</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="icon" href="logo.png" type="image/png">
+</head>
+<body>
+    <div class="login-container">
+        <form class="login-form" onsubmit="validateLogin(); return false;">
+            <h2>Login to Your Account</h2>
+            <div class="input-container">
+                <!-- <label for="username">Username</label> -->
+                <input type="text" id="username" name="username" required placeholder="Username">
+            </div>
+            <div class="input-container">
+                <!-- <label for="password">Password</label> -->
+                <input type="password" id="password" name="password" required placeholder="Password">
+            </div>
+            <button type="submit">Login</button>
+            <br>
+            <!-- <p class="login-link">Or, login with:</p> -->
+            <div class="oauth-buttons">
+                <button class="google-button">Login with Google</button>
+                <button class="facebook-button">Login with Facebook</button>
+            </div>
+            <p class="login-link">Don't have an account? <a href="signup.html">Sign up</a></p>
+        </form>
+    </div>
+
+    <script>
+        function validateLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Check if the username and password match
+            if (username === 'surya' && password === 'spidermannew123') {
+                // Redirect to the landing page
+                window.location.href = 'index.html';
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>

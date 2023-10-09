@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniplay Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="logo.png" type="image/png" >
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo" onclick="reloadPage()">
+            <img src="logo.png" alt="Logo" width="30">
+            Aniplay
+        </div>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search...">
+            <button onclick="searchText()">Search</button>
+        </div>
+        
+        
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    
+    <script>
+        function reloadPage() {
+            location.reload();
+        }
+    </script>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to Aniplay</h1>
+        <p>Discover the best Cosplays at great prices.</p>
+        <a href="#" class="btn">Shop Now</a>
+    </section>
+
+<hr noshade>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <h2>Best selling product:</h2><br>
+        <!-- <p>All Products are so resonable at price</p> -->
+        <div class="product">
+            <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSJSjyuB9NC-fVEQvBqj4Z8n8BNCOk8za1vIBvBzGc8zvLKIjHayQUzLodS4IJ3KiDKGeKOmlhq_LKRD6FghJ6yU6ZHKczWR2vMPRKDWWo8bmeoEJGsOHzL&usqp=CAE" alt="Product image not available" width="1000">
+            <h3>Uchiha Madara Costume - Deluxe Version</h3>
+            <!-- <button class="add-to-cart-btn" data-name="Product 1" data-price="19.99">Add to Cart</button> -->
+            <p>Price: $19.99</p>
+            <br>
+            <a href="#" class="btn">Add to Cart</a>
+            <a href="#" class="btn">Buy now</a>
+        </div>
+        <h2>Other Products:</h2><br>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/71w2ZiC85QL._UX679_.jpg" alt="Product image not available" width="500">
+            <h3>Akatsuki Ring Costume</h3>
+            <p>Price: $19.99</p>
+            <br>
+            <a href="#" class="btn">Add to Cart</a>
+            <a href="#" class="btn">Buy now</a>
+        </div>
+        
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/61ztWeVC9hL._UY879_.jpg" alt="Product image not available" width="350">
+            <h3>Naruto Anime Inspired Jacket for Men</h3>
+            <p>Price: $19.99</p>
+            <br>
+            <a href="#" class="btn">Add to Cart</a>
+            <a href="#" class="btn">Buy now</a>
+        </div>
+        
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/81ZpSS0XJEL._UY741_.jpg" alt="Product image not available" width="400">
+            <h3>Kakashi jacket for men - Standard Length </h3>
+            <p>Price: $19.99</p>
+            <br>
+            <a href="#" class="btn">Add to Cart</a>
+            <a href="#" class="btn">Buy now</a>
+        </div>
+        
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/61gLpjdGSvL._UX679_.jpg" alt="Product image not available" width="500">
+            <h3>Tobi Obito Resin Mask</h3>
+            <p>Price: $19.99</p>
+            <br>
+            <a href="#" class="btn">Add to Cart</a>
+            <a href="#" class="btn">Buy now</a>
+        </div>
+        
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/31YBbQUygaL._UX679_.jpg" alt="Product image not available" width="400">
+            <h3> Akatsuki Red Cloud Shaped Unisex Sunglasses</h3>
+            <p>Price: $19.99</p>
+            <br>
+            <a href="#" class="btn">Add to Cart</a>
+            <a href="#" class="btn">Buy now</a>
+        </div>
+        
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/61W6ytuqBcL._UX679_.jpg" alt="Product image not available" width="500">
+            <h3>Demon Slayer Kamado Nezuko Tanjirou</h3>
+            <p>Price: $19.99</p>
+            <br>
+            <a href="#" class="btn">Add to Cart</a>
+            <a href="#" class="btn">Buy now</a>
+        </div>
+        <!-- Repeat for more products -->
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo">Aniplay</div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>&copy; 2023 Aniplay. All rights reserved.</p>
+    </footer>
+
+<!-- Add this script tag to your HTML file just before the closing </body> tag -->
+<script>
+    // Initialize an empty shopping cart
+    let shoppingCart = [];
+
+    // Function to add a product to the cart
+    function addToCart(productName, price) {
+        shoppingCart.push({ name: productName, price: price });
+        updateCart();
+    }
+
+    // Function to update the cart display
+    function updateCart() {
+        const cartList = document.getElementById('cart-list');
+        const cartTotal = document.getElementById('cart-total');
+
+        // Clear the current cart display
+        cartList.innerHTML = '';
+        let total = 0;
+
+        // Populate the cart list and calculate the total
+        shoppingCart.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${item.name} - $${item.price}`;
+            cartList.appendChild(listItem);
+            total += item.price;
+        });
+
+        // Update the total
+        cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    // Add event listeners to "Add to Cart" buttons
+    document.addEventListener('DOMContentLoaded', () => {
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productName = button.getAttribute('data-name');
+                const productPrice = parseFloat(button.getAttribute('data-price'));
+                addToCart(productName, productPrice);
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

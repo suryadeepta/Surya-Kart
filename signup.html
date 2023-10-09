@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Your E-Commerce Store</title>
+    <link rel="stylesheet" href="signup.css">
+    <link rel="icon" href="logo.png" type="image/png">
+   
+</head>
+<body>
+    <div class="signup-container">
+        <br><br><br><br><br><br><br><br><br><br><br>
+        <form class="signup-form">
+            <h2>Create an Account</h2>
+            <div id="profile-image">
+                <img id="image" src="" alt="Uploaded Image" />
+            </div>
+            <div id="container">
+                <h3>Profile Image</h3>
+                <label for="inImg" class="upload-button">Upload Image</label>
+                <input id="inImg" type="file"/>
+            </div>
+            <script>
+                var file = document.getElementById("inImg");
+                var img = document.getElementById("image");
+                file.addEventListener("change", (e) => {
+                    img.src = URL.createObjectURL(e.target.files[0]);
+                });
+            </script>
+
+            <br>
+
+            <div class="input-container">
+                <!-- <label for="username">Username</label> -->
+                <input type="text" id="username" name="username" required placeholder="Username">
+            </div>
+            <div class="input-container">
+                <!-- <label for="email">Email</label> -->
+                <input type="email" id="email" name="email" required placeholder="Email">
+            </div>
+            <div class="input-container">
+                <!-- <label for="password">Password</label> -->
+                <input type="password" id="password" name="password" required placeholder="Password">
+            </div>
+            <div class="input-container">
+                <!-- <label for="confirm-password">Confirm Password</label> -->
+                <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirm-Password">
+            </div>
+            <button type="submit">Sign Up</button>
+            <p class="login-link">Already have an account? <a href="login.html">Log in</a></p>
+        </form>
+    </div>
+</body>
+</html>
